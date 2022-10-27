@@ -19,26 +19,28 @@ bool ladSearch (std::vector<std::vector<int> >& arr, int target) {
 void ladderSearch (int m, int n){
   vector<vector<int> > arr(m, vector<int>(n));
 
-  int target = firstFillArray(arr);
-  clock_t startTime =  clock();
-  ladSearch(arr, target);
-  clock_t endTime =  clock();
+  int target;
 
-  cout << "\t\tFirst filling " << (double)(endTime - startTime)/CLOCKS_PER_SEC << endl;
+  target = firstFillArray(arr);
+  auto start1 = chrono::system_clock::now();
+  ladSearch(arr, target);
+  auto end1 = chrono::system_clock::now();
+
+  cout << "\t\tFirst fill: " << chrono::duration_cast<chrono::microseconds>(end1 - start1).count() << endl;
 
   target = secondFillArray(arr);
-  startTime =  clock();
+  auto start2 = chrono::system_clock::now();
   ladSearch(arr, target);
-  endTime =  clock();
+  auto end2 = chrono::system_clock::now();
 
-  cout << "\t\tSecond filling " << (double)(endTime - startTime)/CLOCKS_PER_SEC << endl;
+  cout << "\t\tSecond fill " << chrono::duration_cast<chrono::microseconds>(end2 - start2).count() << endl;
 }
 
 void ladderSearchResult () {
   int n = 8192, m = 2;
   cout << "Ladder Search:" << endl;
   for (int i = 1; i < 14; ++i, m = (int)pow(2,i)) {
-    cout << "\tm = 2**" << i << endl;
+      cout << "\tm = 2**" << i << endl;
     ladderSearch(m, n);
   }
 }
