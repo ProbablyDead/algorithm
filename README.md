@@ -27,6 +27,22 @@ https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c544
 
 ---
 
+> ### Запуски алгоритмов и замеры времени
+>
+> * _Бинарный поиск_
+> 
+> https://github.com/ProbablyDead/algorithm/blob/369fb63aef69fb3b4c17691d6b70604cfd24dd8c/algorithms/binary/binary.cpp#L28-L46
+> 
+> * _Поиск лесенкой_
+> 
+> https://github.com/ProbablyDead/algorithm/blob/369fb63aef69fb3b4c17691d6b70604cfd24dd8c/algorithms/ladder/ladder.cpp#L19-L37
+>
+> * _Экспоненциальный поиск_
+> 
+> https://github.com/ProbablyDead/algorithm/blob/369fb63aef69fb3b4c17691d6b70604cfd24dd8c/algorithms/exponentional/exp.cpp#L31-L49
+
+---
+
 ## Замеры (в микросекундах)
 
 * _Бинарный поиск_
@@ -74,8 +90,20 @@ https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c544
 
 ## _Выводы_
 
+* Заметно, что различия во времени выполнения между одним алгоритмом, работающим на разных данных различаются, 
+в основном `второе заполнение работает быстрее`, за исключением бинарного поиска, думаю тут дело в нулях в первой строке
+и первом столбце.
+* Замечу факт, что бинарный поиск работает почти в `2 раза медленнее` конкурентов на больших данных, так как никаких 
+смещений по строкам нет 
+и приходится искать в каждой.
+* Бинарный очень неплохо справляется `с малыми объемами данных` (~ М < 100).
+* Поиск лесенкой наоборот, `очень долго работает на малых данных`, но на больших (M > 500), он `обгоняет бинарный`,
+после чего, начинает работать `быстрее экспоненциального` при `М > 5000` на первом заполнении и `М > 4000` на втором.
+Думаю, это обусловлено тем, что на больших объемах, кривая, по которой проходит поиск, стремится к диагональной прямой.
 
+> __Итого:__ на малых данных быстрее всего работают `бинарный и экспоненциальный`, а 
+> на больших данных - `поиск лесенкой`.
 
 ---
 
-### Excel document is [here](https://docs.google.com/spreadsheets/d/1FrxqawflBV525azESpkDQXcTIUvimMBtfz8EOFm53jg/edit?usp=sharing)
+### Excel report is [here](https://docs.google.com/spreadsheets/d/1FrxqawflBV525azESpkDQXcTIUvimMBtfz8EOFm53jg/edit?usp=sharing)
