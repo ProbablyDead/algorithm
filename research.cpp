@@ -1,6 +1,6 @@
-#include "algorithm/binary/binary.hpp"
-#include "algorithm/ladder/ladder.hpp"
-#include "algorithm/exponentional/exp.hpp"
+#include "algorithms/binary/binary.hpp"
+#include "algorithms/ladder/ladder.hpp"
+#include "algorithms/exponentional/exp.hpp"
 
 int main() {
   binarySearchResult();
