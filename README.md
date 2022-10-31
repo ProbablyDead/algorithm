@@ -78,11 +78,11 @@ https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c544
 
 ## Зависимость от заполнения
 
-* _A[i][j] = (N/M*i + j)*2_
+* _A[i][j] = (N/M * i + j) * 2_
 
 ![Первое заполнение](.readmeStuff/visualizations/firstFill.png)
 
-* _A[i][j] = (N/M*i*j)*2_
+* _A[i][j] = (N/M * i * j) * 2_
 
 ![Второе заполнение](.readmeStuff/visualizations/secondFill.png)
 
@@ -104,6 +104,4 @@ https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c544
 > __Итого:__ на малых данных быстрее всего работают `бинарный и экспоненциальный`, а 
 > на больших данных - `поиск лесенкой`.
 
----
-
-### Excel report is [here](https://docs.google.com/spreadsheets/d/1FrxqawflBV525azESpkDQXcTIUvimMBtfz8EOFm53jg/edit?usp=sharing)
+### P.S. Excel report is [here](https://docs.google.com/spreadsheets/d/1FrxqawflBV525azESpkDQXcTIUvimMBtfz8EOFm53jg/edit?usp=sharing)
