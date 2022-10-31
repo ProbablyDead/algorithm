@@ -1,19 +1,29 @@
-#include "exp.h"
+#include "exp.hpp"
 #include <vector>
 #include <iostream>
 #include <cmath>
 #include <algorithm>
 #include "../../array/arrOpt.hpp"
 
+pair<int, bool> binary2 (vector<int>& arr, int target, int leftPoz, int rightPoz) {
+  int center = (leftPoz + rightPoz)/2;
+
+  if (arr[center] == target) {return make_pair(center,true);}
+  if (rightPoz == leftPoz) {return make_pair(center, false);}
+  if (leftPoz - rightPoz < 0) {return make_pair(center, false);}
+  if (arr[center] < target) {binary2(arr, target, center, rightPoz);}
+  if (arr[center] > target) {binary2(arr, target, leftPoz, center);}
+
+
+  return make_pair(-1, false);
+}
+
 bool expSearch (std::vector<std::vector<int> >& arr, int target) {
-  int n = static_cast<int>(arr[0].size()) - 1, m = static_cast<int>(arr.size());
-  for (auto i : arr){
-    int ex = 2;
-    while (n - ex < m && i[n - ex] > target){
-      ex*=2;
-    }
-    if (binary_search(i.end() - ex, i.end() - ex/2, target))
-      return true;
+  int rightPoz = 8192;
+  for (auto & i : arr){
+    pair rez = binary2(i, target, 0, rightPoz);
+    if (rez.second) {return true;}
+    rightPoz = rez.first;
   }
   return false;
 }
@@ -28,21 +38,21 @@ void exponentialSearch (int m, int n){
   expSearch(arr, target);
   auto end1 = chrono::system_clock::now();
 
-  cout << "\t\tFirst fill: " << chrono::duration_cast<chrono::microseconds>(end1 - start1).count() << endl;
+  cout << chrono::duration_cast<chrono::microseconds>(end1 - start1).count() << "\t\t";
 
   target = secondFillArray(arr);
   auto start2 = chrono::system_clock::now();
   expSearch(arr, target);
   auto end2 = chrono::system_clock::now();
 
-  cout << "\t\tSecond fill " << chrono::duration_cast<chrono::microseconds>(end2 - start2).count() << endl;
+  cout << chrono::duration_cast<chrono::microseconds>(end2 - start2).count() << endl;
 }
 
 void exponentialSearchResult () {
   int n = 8192, m = 2;
-  cout << "Exponential Search:" << endl;
+  cout << "\n\tExponential Search:" << endl << "M\t\tFirst\tSecond\n";
   for (int i = 1; i < 14; ++i, m = (int)pow(2,i)) {
-      cout << "\tm = 2**" << i << endl;
+    cout << "2**" << i << '\t';
     exponentialSearch(m, n);
   }
 }

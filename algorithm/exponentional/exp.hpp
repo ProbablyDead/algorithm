@@ -1,5 +1,5 @@
-#ifndef ALGO_EXP_H
-#define ALGO_EXP_H
+#ifndef ALGO_EXP_HPP
+#define ALGO_EXP_HPP
 
 void exponentialSearchResult ();
 

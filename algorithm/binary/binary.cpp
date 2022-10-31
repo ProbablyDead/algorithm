@@ -4,13 +4,28 @@
 #include <cmath>
 #include "../../array/arrOpt.hpp"
 
-void binSearch (vector<vector<int> >& arr, int target) {
-	for (auto i : arr){
-			binary_search (i.begin(), i.end(), target);
-		}
+pair<int, bool> binary (vector<int>& arr, int target, int leftPoz, int rightPoz) {
+  int center = (leftPoz + rightPoz)/2;
+
+  if (arr[center] == target) {return make_pair(center,true);}
+  if (rightPoz == leftPoz) {return make_pair(center, false);}
+  if (leftPoz - rightPoz < 0) {return make_pair(center, false);}
+  if (arr[center] < target) {binary(arr, target, center, rightPoz);}
+  if (arr[center] > target) {binary(arr, target, leftPoz, center);}
+
+
+  return make_pair(-1, false);
 }
 
-void binarySearch (int m, int n){
+bool binSearch (vector<vector<int> >& arr, int target) {
+	for (auto & i : arr){
+    pair rez = binary(i, target, 0, (int)pow(2, 13));
+    if (rez.second) {return true;}
+		}
+  return (false);
+}
+
+void binarySearch (int m, int n) {
 	vector<vector<int> > arr(m, vector<int>(n));
 
   int target;
@@ -20,21 +35,21 @@ void binarySearch (int m, int n){
   binSearch(arr, target);
   auto end1 = chrono::system_clock::now();
 
-  cout << "\t\tFirst fill: " << chrono::duration_cast<chrono::microseconds>(end1 - start1).count() << endl;
+  cout << chrono::duration_cast<chrono::microseconds>(end1 - start1).count() << "\t\t";
 
   target = secondFillArray(arr);
   auto start2 = chrono::system_clock::now();
   binSearch(arr, target);
   auto end2 = chrono::system_clock::now();
 
-  cout << "\t\tSecond fill " << chrono::duration_cast<chrono::microseconds>(end2 - start2).count() << endl;
+  cout << chrono::duration_cast<chrono::microseconds>(end2 - start2).count() << endl;
 }
 
 void binarySearchResult () {
   int n = 8192, m = 2;
-  cout << "Binary Search:" << endl;
+  cout << "\tBinary Search:" << endl << "M\t\tFirst\tSecond\n";
 	for (int i = 1; i < 14; ++i, m = (int)pow(2,i)) {
-		  cout << "\tm = 2**" << i << endl;
+		  cout << "2**" << i << '\t';
     binarySearch(m, n);
 	}
 }
