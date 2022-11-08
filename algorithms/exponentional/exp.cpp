@@ -19,11 +19,17 @@ pair<int, bool> binary2 (vector<int>& arr, int target, int leftPoz, int rightPoz
 }
 
 bool expSearch (std::vector<std::vector<int> >& arr, int target) {
-  int rightPoz = 8192;
+  int n = 8191;
   for (auto & i : arr){
-    pair rez = binary2(i, target, 0, rightPoz);
-    if (rez.second) {return true;}
-    rightPoz = rez.first;
+     for (int j = n, step = 2; j > -1; j-= step, step *=2){
+       if (i[j] < target){
+         pair rez = binary2(i, target, j, j + step);
+         if (rez.second) {return true;}
+         n = j;
+         break;
+       }
+       if (i[j] == target) {return true;}
+     }
   }
   return false;
 }
