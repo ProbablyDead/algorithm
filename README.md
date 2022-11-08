@@ -23,7 +23,7 @@ https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c544
 
 * _Экспоненциальный поиск_ - O(M*log(N))
 
-https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c5447520a6f/algorithm/exponentional/exp.cpp#L21-L29
+https://github.com/ProbablyDead/algorithm/blob/cabec6050f32cdf685d2eda633ad4b73ab359b16/algorithms/exponentional/exp.cpp#L21-L35
 
 ---
 
