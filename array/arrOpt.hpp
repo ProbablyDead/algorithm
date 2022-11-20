@@ -4,7 +4,7 @@
 #include <iostream>
 
 using namespace std;
-int firstFillArray (vector<vector<int> >& arr);
-int secondFillArray (vector<vector<int> >& arr);
+int firstFillArray (vector<vector<long long int> >& arr);
+int secondFillArray (vector<vector<long long int> >& arr);
 
 #endif

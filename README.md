@@ -39,6 +39,7 @@ https://github.com/ProbablyDead/algorithm/blob/cabec6050f32cdf685d2eda633ad4b73a
 >
 > * _Экспоненциальный поиск_
 > 
+> https://github.com/ProbablyDead/algorithm/blob/cabec6050f32cdf685d2eda633ad4b73ab359b16/algorithms/exponentional/exp.cpp#L21-L35
 > 
 
 ---

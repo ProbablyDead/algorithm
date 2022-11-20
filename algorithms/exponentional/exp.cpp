@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "../../array/arrOpt.hpp"
 
-pair<int, bool> binary2 (vector<int>& arr, int target, int leftPoz, int rightPoz) {
+pair<int, bool> binary2 (vector<long long int>& arr, int target, int leftPoz, int rightPoz) {
   int center = (leftPoz + rightPoz)/2;
 
   if (arr[center] == target) {return make_pair(center,true);}
@@ -18,7 +18,7 @@ pair<int, bool> binary2 (vector<int>& arr, int target, int leftPoz, int rightPoz
   return make_pair(-1, false);
 }
 
-bool expSearch (std::vector<std::vector<int> >& arr, int target) {
+bool expSearch (std::vector<std::vector<long long int> >& arr, int target) {
   int n = 8191;
   for (auto & i : arr){
      for (int j = n, step = 2; j > -1; j-= step, step *=2){
@@ -35,7 +35,7 @@ bool expSearch (std::vector<std::vector<int> >& arr, int target) {
 }
 
 void exponentialSearch (int m, int n){
-  vector<vector<int> > arr(m, vector<int>(n));
+  vector<vector<long long int> > arr(m, vector<long long int>(n));
 
   int target;
 

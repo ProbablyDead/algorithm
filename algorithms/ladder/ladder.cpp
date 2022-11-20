@@ -4,7 +4,7 @@
 #include <cmath>
 #include "../../array/arrOpt.hpp"
 
-bool ladSearch (std::vector<std::vector<int> >& arr, int target) {
+bool ladSearch (std::vector<std::vector<long long int> >& arr, int target) {
   for (int i = 0, j = 8191; i < arr.size(); ++i){
     if (arr[i][j] == target) {return true;}
     if (arr[i][j] < target) {continue;}
@@ -17,7 +17,7 @@ bool ladSearch (std::vector<std::vector<int> >& arr, int target) {
 }
 
 void ladderSearch (int m, int n){
-  vector<vector<int> > arr(m, vector<int>(n));
+  vector<vector<long long int> > arr(m, vector<long long int>(n));
 
   int target;
 

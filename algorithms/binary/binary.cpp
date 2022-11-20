@@ -4,7 +4,7 @@
 #include <cmath>
 #include "../../array/arrOpt.hpp"
 
-pair<int, bool> binary (vector<int>& arr, int target, int leftPoz, int rightPoz) {
+pair<int, bool> binary (vector<long long int>& arr, int target, int leftPoz, int rightPoz) {
   int center = (leftPoz + rightPoz)/2;
 
   if (arr[center] == target) {return make_pair(center,true);}
@@ -17,7 +17,7 @@ pair<int, bool> binary (vector<int>& arr, int target, int leftPoz, int rightPoz)
   return make_pair(-1, false);
 }
 
-bool binSearch (vector<vector<int> >& arr, int target) {
+bool binSearch (vector<vector<long long int> >& arr, int target) {
 	for (auto & i : arr){
     pair rez = binary(i, target, 0, (int)pow(2, 13));
     if (rez.second) {return true;}
@@ -26,7 +26,7 @@ bool binSearch (vector<vector<int> >& arr, int target) {
 }
 
 void binarySearch (int m, int n) {
-	vector<vector<int> > arr(m, vector<int>(n));
+	vector<vector<long long int> > arr(m, vector<long long int>(n));
 
   int target;
 
