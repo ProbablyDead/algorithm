@@ -7,7 +7,7 @@ https://github.com/ProbablyDead/algorithm/blob/25f5c39e19ff25c2f452321cbbd190c83
 
 * _A[i][j] = (N/M * i * j) * 2_
 
-https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/array/arrOpt.cpp#L16-L26
+https://github.com/ProbablyDead/algorithm/blob/2031ea8f0a516cd75d2720de00afaef3ea3c15b1/array/arrOpt.cpp#L16-L26
 
 ---
 
