@@ -3,11 +3,11 @@
 ## Реализации заполнений
 * _A[i][j] = (N/M * i + j) * 2_
 
-https://github.com/ProbablyDead/algorithm/blob/cdcbca7d4734c92dcfb53fa770777a4ad6463cfb/array/arrOpt.cpp#L4-L12
+https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/array/arrOpt.cpp#L4-L14
 
 * _A[i][j] = (N/M * i * j) * 2_
 
-https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c5447520a6f/array/arrOpt.cpp#L14-L22
+https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/array/arrOpt.cpp#L16-L26
 
 ---
 
@@ -15,15 +15,18 @@ https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c544
 
 * _Бинарный поиск_ - O(M*log(N))
 
-https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c5447520a6f/algorithm/binary/binary.cpp#L7-L18
+https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/binary/binary.cpp#L6-L17
 
 * _Поиск лесенкой_  - O(M+N)
 
-https://github.com/ProbablyDead/algorithm/blob/f8e4a7baf4124ca099a6d5a773354c5447520a6f/algorithm/ladder/ladder.cpp#L7-L17
+https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/ladder/ladder.cpp#L6-L16
 
 * _Экспоненциальный поиск_ - O(M*log(N))
 
-https://github.com/ProbablyDead/algorithm/blob/cabec6050f32cdf685d2eda633ad4b73ab359b16/algorithms/exponentional/exp.cpp#L21-L35
+https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/exponentional/exp.cpp#L32-L53
+
+> Бинарный поиск по столбцу
+> https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/exponentional/exp.cpp#L19-L30
 
 ---
 
@@ -31,15 +34,15 @@ https://github.com/ProbablyDead/algorithm/blob/cabec6050f32cdf685d2eda633ad4b73a
 >
 > * _Бинарный поиск_
 > 
-> https://github.com/ProbablyDead/algorithm/blob/369fb63aef69fb3b4c17691d6b70604cfd24dd8c/algorithms/binary/binary.cpp#L28-L46
+> https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/binary/binary.cpp#L28-L46
 > 
 > * _Поиск лесенкой_
 > 
-> https://github.com/ProbablyDead/algorithm/blob/369fb63aef69fb3b4c17691d6b70604cfd24dd8c/algorithms/ladder/ladder.cpp#L19-L37
+> https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/ladder/ladder.cpp#L18-L36
 >
 > * _Экспоненциальный поиск_
 > 
-> https://github.com/ProbablyDead/algorithm/blob/cabec6050f32cdf685d2eda633ad4b73ab359b16/algorithms/exponentional/exp.cpp#L21-L35
+> https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/exponentional/exp.cpp#L55-L73
 > 
 
 ---
