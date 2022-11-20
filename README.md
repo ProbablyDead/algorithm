@@ -3,7 +3,7 @@
 ## Реализации заполнений
 * _A[i][j] = (N/M * i + j) * 2_
 
-https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/array/arrOpt.cpp#L4-L14
+https://github.com/ProbablyDead/algorithm/blob/25f5c39e19ff25c2f452321cbbd190c832a489b3/array/arrOpt.cpp#L4-L14
 
 * _A[i][j] = (N/M * i * j) * 2_
 
@@ -34,7 +34,7 @@ https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc
 >
 > * _Бинарный поиск_
 > 
-> https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/binary/binary.cpp#L28-L46
+> https://github.com/ProbablyDead/algorithm/blob/25f5c39e19ff25c2f452321cbbd190c832a489b3/algorithms/binary/binary.cpp#L28-L46
 > 
 > * _Поиск лесенкой_
 > 

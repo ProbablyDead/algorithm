@@ -22,6 +22,6 @@ int secondFillArray (vector<vector<long long int> >& arr) {
     }
     ++a;
   }
-	return 16*n + 1;
+  return 16*n + 1;
 }
 
