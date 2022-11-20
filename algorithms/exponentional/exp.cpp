@@ -1,54 +1,72 @@
 #include "exp.hpp"
 #include <vector>
 #include <iostream>
-#include <cmath>
 #include <algorithm>
 #include "../../array/arrOpt.hpp"
 
-pair<int, bool> binary2 (vector<long long int>& arr, int target, int leftPoz, int rightPoz) {
+int binaryRow (vector<long long int>& arr, int target, int leftPoz, int rightPoz) {
   int center = (leftPoz + rightPoz)/2;
 
-  if (arr[center] == target) {return make_pair(center,true);}
-  if (rightPoz == leftPoz) {return make_pair(center, false);}
-  if (leftPoz - rightPoz < 0) {return make_pair(center, false);}
-  if (arr[center] < target) {binary2(arr, target, center, rightPoz);}
-  if (arr[center] > target) {binary2(arr, target, leftPoz, center);}
+  if (arr[center] == target) { return center; }
+  if (rightPoz == leftPoz) { return center; }
+  if (leftPoz - rightPoz < 0) { return center; }
+  if (arr[center] < target) { return binaryRow(arr, target, center, rightPoz); }
+  if (arr[center] > target) { return binaryRow(arr, target, leftPoz, center); }
 
-
-  return make_pair(-1, false);
+  return -1;
 }
 
-bool expSearch (std::vector<std::vector<long long int> >& arr, int target) {
-  int n = 8191;
-  for (auto & i : arr){
-     for (int j = n, step = 2; j > -1; j-= step, step *=2){
-       if (i[j] < target){
-         pair rez = binary2(i, target, j, j + step);
-         if (rez.second) {return true;}
-         n = j;
-         break;
-       }
-       if (i[j] == target) {return true;}
-     }
+int binaryColumn (vector<vector<long long int> >& arr, int j, int target, int upperPoz, int bottomPoz) {
+  int center = (upperPoz + bottomPoz)/2;
+
+  if (arr[center][j] == target) { return center; }
+  if (center == bottomPoz || center == upperPoz) { return bottomPoz;}
+  if (upperPoz == bottomPoz) { return center; }
+  if (upperPoz > bottomPoz) { return center; }
+  if (arr[center][j] < target) { return binaryColumn(arr, j, target, center, bottomPoz); }
+  if (arr[center][j] > target) { return binaryColumn(arr, j, target, upperPoz, center); }
+
+  return -1;
+}
+
+bool expSearch (vector<vector<long long int> >& arr, int target, int m) {
+  int i = 0, j = 8191;
+  while (true) {
+    int stepI = 1, stepJ = 1;
+
+    for (; i + stepI < m; stepI <<= 1) {
+      if (arr[i][j] > target) { break; }
+      i += stepI;
+    }
+
+    i = binaryColumn(arr, j, target, i - (stepI >> 1), i);
+
+    for (; j > -1; stepJ <<= 1) {
+      if (arr[i][j] < target) { break; }
+      j -= stepJ;
+    }
+    j = binaryRow(arr[i], target, j, j + (stepJ >> 1));
+
+    if (i >= m - 1  || j <= 0) { return false; }
+    if (arr[i][j] == target) { return true; }
   }
-  return false;
 }
 
-void exponentialSearch (int m, int n){
+void exponentialSearch (int m, int n) {
   vector<vector<long long int> > arr(m, vector<long long int>(n));
 
   int target;
 
   target = firstFillArray(arr);
   auto start1 = chrono::system_clock::now();
-  expSearch(arr, target);
+  expSearch(arr, target, m);
   auto end1 = chrono::system_clock::now();
 
   cout << chrono::duration_cast<chrono::microseconds>(end1 - start1).count() << "\t\t";
 
   target = secondFillArray(arr);
   auto start2 = chrono::system_clock::now();
-  expSearch(arr, target);
+  expSearch(arr, target, m);
   auto end2 = chrono::system_clock::now();
 
   cout << chrono::duration_cast<chrono::microseconds>(end2 - start2).count() << endl;
@@ -57,7 +75,7 @@ void exponentialSearch (int m, int n){
 void exponentialSearchResult () {
   int n = 8192, m = 2;
   cout << "\n\tExponential Search:" << endl << "M\t\tFirst\tSecond\n";
-  for (int i = 1; i < 14; ++i, m = (int)pow(2,i)) {
+  for (int i = 1; i < 14; ++i, m<<=1) {
     cout << "2**" << i << '\t';
     exponentialSearch(m, n);
   }
