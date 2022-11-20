@@ -26,11 +26,11 @@ bool binSearch (vector<vector<long long int> >& arr, int target) {
 }
 
 void binarySearch (int m, int n) {
-	vector<vector<long long int> > arr(m, vector<long long int>(n));
+  vector<vector<long long int> > arr(m, vector<long long int>(n));
 
   int target;
 
-	target = firstFillArray(arr);
+  target = firstFillArray(arr);
   auto start1 = chrono::system_clock::now();
   binSearch(arr, target);
   auto end1 = chrono::system_clock::now();
