@@ -23,7 +23,7 @@ https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc
 
 * _Поиск лесенкой_  - O(M+N)
 
-https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/ladder/ladder.cpp#L6-L16
+https://github.com/ProbablyDead/algorithm/blob/10d9ad1d873551343b5eef60de5cda6768e4da0b/algorithms/ladder/ladder.cpp#L6-L16
 
 * _Экспоненциальный поиск_ - O(M*log(N))
 
@@ -42,7 +42,7 @@ https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc
 > 
 > * _Поиск лесенкой_
 > 
-> https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/ladder/ladder.cpp#L18-L36
+> https://github.com/ProbablyDead/algorithm/blob/10d9ad1d873551343b5eef60de5cda6768e4da0b/algorithms/ladder/ladder.cpp#L18-L36
 >
 > * _Экспоненциальный поиск_
 > 
