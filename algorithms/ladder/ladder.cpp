@@ -3,14 +3,14 @@
 #include <iostream>
 #include "../../array/arrOpt.hpp"
 
-bool ladSearch (std::vector<std::vector<long long int> >& arr, int target) {
-  for (int i = 0, j = 8191; i < arr.size(); ++i) {
-    if (arr[i][j] == target) { return true; }
-    if (arr[i][j] < target) { continue; }
-    for (; j > -1; --j) {
-      if (arr[i][j] == target) { return true; }
-      if (arr[i][j] < target) { break; }
-    }
+bool ladSearch (vector<vector<long long int> >& arr, int target, int m) {
+  int i = 8191, j = 0;
+  while (i >= 0 && j < m) {
+      if (arr[j][i] == target) { return true; }
+      else {
+          if (arr[j][i] > target) { --i; }
+          else { ++j; }
+      }
   }
   return false;
 }
@@ -22,14 +22,14 @@ void ladderSearch (int m, int n) {
 
   target = firstFillArray(arr);
   auto start1 = chrono::system_clock::now();
-  ladSearch(arr, target);
+  ladSearch(arr, target, m);
   auto end1 = chrono::system_clock::now();
 
   cout << chrono::duration_cast<chrono::microseconds>(end1 - start1).count() << "\t\t";
 
   target = secondFillArray(arr);
   auto start2 = chrono::system_clock::now();
-  ladSearch(arr, target);
+  ladSearch(arr, target, m);
   auto end2 = chrono::system_clock::now();
 
   cout << chrono::duration_cast<chrono::microseconds>(end2 - start2).count() << endl;
