@@ -3,26 +3,25 @@
 #include <iostream>
 #include "../../array/arrOpt.hpp"
 
-pair<int, bool> binary (vector<long long int>& arr, int target, int leftPoz, int rightPoz) {
-  int center = (leftPoz + rightPoz)/2;
-
-  if (arr[center] == target) { return make_pair(center,true); }
-  if (leftPoz == rightPoz) { return make_pair(rightPoz, false); }
-  if (rightPoz == leftPoz) { return make_pair(center, false); }
-  if (leftPoz - rightPoz < 0) { return make_pair(center, false); }
-  if (arr[center] < target) { return binary(arr, target, center, rightPoz); }
-  if (arr[center] > target) { return binary(arr, target, leftPoz, center); }
-
-  return make_pair(-1, false);
-}
-
-bool binSearch (vector<vector<long long int> >& arr, int target) {
-	for (auto & i : arr) {
-    pair rez = binary(i, target, 0, 2 << 12);
-    if (rez.second) { return true; }
-		}
-
-  return (false);
+bool binSearch(vector<vector<long long int> >& arr, int target) {
+  for (auto& i : arr) {
+    int left = 0, right = 8191;
+    while (true) {
+      int center = (left + right) / 2;
+      if (i[center] == target) { return true; }
+      if (center == left || center == right) { break; }
+      if (left >= right) { break; }
+      if (i[center] < target) {
+        left = center;
+        continue;
+      }
+      if (i[center] > target) {
+        right = center;
+        continue;
+      }
+    }
+  }
+  return false;
 }
 
 void binarySearch (int m, int n) {
