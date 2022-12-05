@@ -4,29 +4,42 @@
 #include <algorithm>
 #include "../../array/arrOpt.hpp"
 
-int binaryRow (vector<long long int>& arr, int target, int leftPoz, int rightPoz) {
-  int center = (leftPoz + rightPoz)/2;
-
-  if (arr[center] == target) { return center; }
-  if (rightPoz == leftPoz) { return center; }
-  if (leftPoz - rightPoz < 0) { return center; }
-  if (arr[center] < target) { return binaryRow(arr, target, center, rightPoz); }
-  if (arr[center] > target) { return binaryRow(arr, target, leftPoz, center); }
-
-  return -1;
+int binSearchColumn(vector<long long int>& arr, int target, int rightPoz, int leftPoz) {
+  int center = (leftPoz + rightPoz) / 2;
+  while (true) {
+    center = (leftPoz + rightPoz) / 2;
+    if (arr[center] == target) { break; }
+    if (center == leftPoz || center == rightPoz) { break; }
+    if (leftPoz >= rightPoz) { break; }
+    if (arr[center] < target) {
+      leftPoz = center;
+      continue;
+    }
+    if (arr[center] > target) {
+      rightPoz = center;
+      continue;
+    }
+  }
+  return center;
 }
 
-int binaryColumn (vector<vector<long long int> >& arr, int j, int target, int upperPoz, int bottomPoz) {
-  int center = (upperPoz + bottomPoz)/2;
-
-  if (arr[center][j] == target) { return center; }
-  if (center == bottomPoz || center == upperPoz) { return bottomPoz;}
-  if (upperPoz == bottomPoz) { return center; }
-  if (upperPoz > bottomPoz) { return center; }
-  if (arr[center][j] < target) { return binaryColumn(arr, j, target, center, bottomPoz); }
-  if (arr[center][j] > target) { return binaryColumn(arr, j, target, upperPoz, center); }
-
-  return -1;
+int binSearchRow(vector<vector<long long int> >& arr, int target, int upperPoz, int bottomPoz, int column) {
+  int center = (upperPoz + bottomPoz) / 2;
+  while (true) {
+    center = (upperPoz + bottomPoz) / 2;
+    if (arr[center][column] == target) { break; }
+    if (center == upperPoz || center == bottomPoz) { return bottomPoz; }
+    if (upperPoz >= bottomPoz) { break; }
+    if (arr[center][column] < target) {
+      upperPoz = center;
+      continue;
+    }
+    if (arr[center][column] > target) {
+      bottomPoz = center;
+      continue;
+    }
+  }
+  return center;
 }
 
 bool expSearch (vector<vector<long long int> >& arr, int target, int m) {
@@ -39,13 +52,13 @@ bool expSearch (vector<vector<long long int> >& arr, int target, int m) {
       i += stepI;
     }
 
-    i = binaryColumn(arr, j, target, i - (stepI >> 1), i);
+    i = binSearchRow(arr, target, i - (stepI >> 1), i, j);
 
     for (; j > -1; stepJ <<= 1) {
       if (arr[i][j] < target) { break; }
       j -= stepJ;
     }
-    j = binaryRow(arr[i], target, j, j + (stepJ >> 1));
+    j = binSearchColumn(arr[i], target, j + (stepJ >> 1), j);
 
     if (i >= m - 1  || j <= 0) { return false; }
     if (arr[i][j] == target) { return true; }
