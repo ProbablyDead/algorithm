@@ -19,7 +19,7 @@ https://github.com/ProbablyDead/algorithm/blob/2031ea8f0a516cd75d2720de00afaef3e
 
 * _Бинарный поиск_ - O(M*log(N))
 
-https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/binary/binary.cpp#L6-L17
+https://github.com/ProbablyDead/algorithm/blob/2e45a762fe9b9c65d3d55c2433de6671fc479c87/algorithms/binary/binary.cpp#L6-L25
 
 * _Поиск лесенкой_  - O(M+N)
 
