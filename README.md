@@ -30,7 +30,7 @@ https://github.com/ProbablyDead/algorithm/blob/10d9ad1d873551343b5eef60de5cda676
 https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/exponentional/exp.cpp#L32-L53
 
 > Бинарный поиск по столбцу
-> https://github.com/ProbablyDead/algorithm/blob/d75f1d024b78f3711ab86af36883202dc5c9277f/algorithms/exponentional/exp.cpp#L19-L30
+> https://github.com/ProbablyDead/algorithm/blob/47702eda732af2c102a525eb1380293875dd762b/algorithms/exponentional/exp.cpp#L26-L43
 
 ---
 
